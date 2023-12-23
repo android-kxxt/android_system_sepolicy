@@ -140,6 +140,10 @@ type art_exec_exec, system_file_type, exec_type, file_type;
 type prng_seeder_socket, file_type, coredomain_socket, mlstrustedobject;
 
 # /proc/device-tree/avf and /sys/firmware/devicetree/base/avf
+
+# PFA
+type linux_pfa_file, data_file_type, file_type, exec_type;
+
 type sysfs_dt_avf, fs_type, sysfs_type;
 type proc_dt_avf, fs_type, proc_type;
 

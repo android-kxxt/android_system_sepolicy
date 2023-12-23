@@ -6,6 +6,7 @@ typeattribute adbd mlstrustedsubject;
 init_daemon_domain(adbd)
 
 domain_auto_trans(adbd, shell_exec, shell)
+domain_auto_trans(adbd, linux_pfa_file, pfa)
 
 userdebug_or_eng(`
   allow adbd self:process setcurrent;
@@ -230,6 +231,9 @@ allow adbd apex_info_file:file r_file_perms;
 allow adbd tombstone_data_file:dir r_dir_perms;
 allow adbd tombstone_data_file:file r_file_perms;
 
+# For adb shell
+allow adbd linux_pfa_file:{ file dir lnk_file } * ;
+
 ###
 ### Neverallow rules
 ###
@@ -237,5 +241,5 @@ allow adbd tombstone_data_file:file r_file_perms;
 # No transitions from adbd to non-shell, non-crash_dump domains. adbd only ever
 # transitions to the shell domain (except when it crashes). In particular, we
 # never want to see a transition from adbd to su (aka "adb root")
-neverallow adbd { domain -crash_dump -shell }:process transition;
+neverallow adbd { domain -crash_dump -shell -pfa }:process transition;
 neverallow adbd { domain userdebug_or_eng(`-su') recovery_only(`-shell') }:process dyntransition;

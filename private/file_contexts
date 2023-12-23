@@ -897,3 +897,8 @@
 /(system|product)/bin/check_dynamic_partitions  u:object_r:postinstall_exec:s0
 /(system|product)/bin/otapreopt_script          u:object_r:postinstall_exec:s0
 /(system|product)/bin/otapreopt                 u:object_r:postinstall_dexopt_exec:s0
+
+#############################
+# Pacman for Android
+/data/(usr|var|etc|home|opt)(/.*)? u:object_r:linux_pfa_file:s0
+/product/pfa-installation-archive.tar.zst  u:object_r:linux_pfa_file:s0
