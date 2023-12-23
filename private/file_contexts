@@ -902,3 +902,4 @@
 # Pacman for Android
 /data/(usr|var|etc|home|opt)(/.*)? u:object_r:linux_pfa_file:s0
 /product/pfa-installation-archive.tar.zst  u:object_r:linux_pfa_file:s0
+/system/bin/pfa-firstboot u:object_r:pfa_exec:s0

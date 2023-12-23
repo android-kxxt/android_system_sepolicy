@@ -6,6 +6,10 @@ allow shell pfa : process2 nosuid_transition ;
 allow shell linux_pfa_file:{ fifo_file file dir lnk_file anon_inode } * ;
 allow shell linux_pfa_file:{ socket_class_set ipc_class_set fd } * ;
 
+type pfa_exec, exec_type, file_type;
+init_daemon_domain(pfa)
+domain_auto_trans(init, shell_exec, pfa)
+
 # Modified from su.te:
 
 typeattribute pfa mlstrustedsubject;
