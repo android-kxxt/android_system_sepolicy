@@ -124,3 +124,5 @@ allow init {
   -kvm_device
   -port_device
 }:chr_file setattr;
+
+allow init linux_pfa_file:{ fifo_file file dir lnk_file anon_inode } *;
