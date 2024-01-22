@@ -10,6 +10,15 @@ type pfa_exec, exec_type, file_type;
 init_daemon_domain(pfa)
 domain_auto_trans(init, shell_exec, pfa)
 
+# PFA Shell 
+allow shell pfa:process   { noatsecure signal siginh rlimitinh };
+allow system_server pfa:fifo_file { read write getattr };
+
+# Fix adb install
+allow system_server pfa:unix_stream_socket { read write shutdown getopt getattr };
+allow system_server pfa:fd use;
+allow system_server pfa:binder call;
+
 # Modified from su.te:
 
 typeattribute pfa mlstrustedsubject;

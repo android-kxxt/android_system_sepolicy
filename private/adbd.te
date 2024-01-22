@@ -31,6 +31,7 @@ unix_socket_connect(adbd, traced_consumer, traced)
 # Do not sanitize the environment or open fds of the shell. Allow signaling
 # created processes.
 allow adbd shell:process { noatsecure signal };
+allow adbd pfa:process   { noatsecure signal };
 
 # Set UID and GID to shell.  Set supplementary groups.
 allow adbd self:global_capability_class_set { setuid setgid };
@@ -215,6 +216,8 @@ allow adbd perfetto_configs_data_file:file create_file_perms;
 # Used for e.g. abb.
 allow adbd shell:unix_stream_socket { read write shutdown };
 allow adbd shell:fd use;
+allow adbd pfa:unix_stream_socket { read write shutdown };
+allow adbd pfa:fd use;
 
 # Allow pull /vendor/apex files for CTS tests
 allow adbd vendor_apex_file:dir search;
