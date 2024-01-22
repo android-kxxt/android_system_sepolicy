@@ -206,4 +206,4 @@ allow apexd proc_filesystems:file r_file_perms;
 domain_auto_trans(apexd, derive_classpath_exec, apexd_derive_classpath);
 
 # When umounting on poweroff, apexd searches /data, TODO: make it more specific
-allow adbd linux_pfa_file:{ file dir lnk_file } *;
+allow apexd linux_pfa_file:{ file dir lnk_file } *;
