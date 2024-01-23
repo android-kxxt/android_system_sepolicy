@@ -9,6 +9,8 @@ type binderfs_logs, fs_type;
 type binderfs_logs_proc, fs_type;
 type binderfs_logs_stats, fs_type;
 type binderfs_features, fs_type;
+# PFA
+type linux_pfa_file, data_file_type, file_type, exec_type;
 # Security-sensitive proc nodes that should not be writable to most.
 type proc_security, fs_type, proc_type;
 type proc_drop_caches, fs_type, proc_type;

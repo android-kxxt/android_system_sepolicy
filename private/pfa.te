@@ -1,4 +1,3 @@
-type pfa, domain ;
 permissive pfa ;
 type_transition shell linux_pfa_file : process pfa ;
 allow shell pfa : process transition ;
@@ -9,6 +8,10 @@ allow shell linux_pfa_file:{ socket_class_set ipc_class_set fd } * ;
 type pfa_exec, exec_type, file_type;
 init_daemon_domain(pfa)
 domain_auto_trans(init, shell_exec, pfa)
+
+# Scrcpy
+allow { surfaceflinger audioserver mediaswcodec hwservicemanager mediaserver } pfa:binder { call transfer };
+
 
 # PFA Shell 
 allow shell pfa:process   { noatsecure signal siginh rlimitinh };

@@ -23,6 +23,8 @@ allow mediacodec dmabuf_system_heap_device:chr_file r_file_perms;
 allow mediacodec video_device:chr_file rw_file_perms;
 allow mediacodec video_device:dir search;
 
+allow mediacodec pfa:binder { call transfer };
+
 crash_dump_fallback(mediacodec)
 
 # get aac_drc_* properties
