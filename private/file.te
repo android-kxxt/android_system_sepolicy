@@ -120,5 +120,3 @@ type sepolicy_test_file, file_type;
 # write permission on this to connect, and needs to be mlstrustedobject
 # in to satisfy MLS constraints for trusted domains.
 type prng_seeder_socket, file_type, coredomain_socket, mlstrustedobject;
-
-type linux_pfa_file, data_file_type, file_type, exec_type;
